@@ -12,10 +12,10 @@ export class Client {
   apiKey: string;
 
   constructor(apiKey?: string) {
-    this.apiKey = apiKey || import.meta.env.VITE_API_KEY;
-    if (!this.apiKey) {
+    if (!apiKey) {
       throw new Error("No API key provided");
     }
+    this.apiKey = apiKey;
     this.client = axios.create({
       headers: {
         Authorization: "Bearer " + this.apiKey,
