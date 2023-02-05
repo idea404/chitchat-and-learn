@@ -13,8 +13,9 @@ async function handleStart() {
     const client = new Client();
     response.value = await client.getResponse({
       prompt,
-      max_tokens: 5,
-      temperature: 0.1
+      max_tokens: 3000,
+      temperature: 0.1,
+      model: "text-davinci-003"
     })
   } catch (e) {
     if (e instanceof Error) {
