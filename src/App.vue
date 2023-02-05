@@ -9,8 +9,8 @@ const loading = ref<boolean>(false);
 async function handleStart() {
   loading.value = true;
   const prompt = ChatGPTPrompts.getStarterPrompt(ELanguage.DUTCH);
-  const client = new Client();
   try {
+    const client = new Client();
     response.value = await client.getResponse({
       prompt,
       max_tokens: 5,
@@ -28,7 +28,7 @@ async function handleStart() {
 <template>
   <button @click="handleStart">Start</button>
   <span v-if="loading">Loading...</span>
-  <span :v-model="response"></span>
+  <span>{{response }}</span>
 </template>
 
 <style scoped>
